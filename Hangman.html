@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Hangman</title>
+
+</head>
+
+<body>
+
+	<h1>Halloween Hangman</h1>
+	<p id="start" onclick="chooseWord()">Start Game</p>
+	<br>
+	<p id="words"></p>
+
+	<script type="text/javascript">
+		
+		var wordBank = ["Freddy Krueger", "Jason Vorhees", "Michael Myers", "Hellraiser"];
+		var maskBank = ["_ _ _ _ _ _  _ _ _ _ _ _ _", "_ _ _ _ _  _ _ _ _ _ _ _", "_ _ _ _ _ _ _  _ _ _ _ _", "_ _ _ _ _ _ _ _ _ _"]
+		
+		var win = 0
+		var loss = 0
+		var guess = 20
+		var rand = 0
+		var numChar = 0
+		var human
+		var comp
+		var word = ''
+
+		function chooseWord() {
+
+			var comp = wordBank[Math.floor(Math.random() * wordBank.length)]
+			word = wordBank[rand];
+			document.getElementById("words").innerHTML = "Guess the Villain: " + comp;
+			console.log(comp);
+		}
+
+		// maskWord is a hot mess.  I tried to get this function figured out and I'm just not quite there yet.  I'm going to keep working on it and get this functional, but this is all I have for now.
+
+		function maskWord() {
+
+			for (i  = 0; i < wordBank.length; i++) {
+				numChar = wordBank[rand].length;
+				mask = "_";
+				wordLength = m.length
+				document.getElementById("words").style.visibility = "hidden"
+				console.log(maskWord())
+			}
+		}
+		
+		// Some type of function for revealing a letter when it's guessed correctly
+
+		// Okay, so I think, maybe, you could wrap these functions within a parent function called hangman(), or game(), or something.  I'm not totally sure yet, but I'm getting there.
+
+
+
+	</script>
+
+
+</body>
+</html>

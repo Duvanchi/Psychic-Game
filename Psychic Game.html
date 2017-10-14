@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Psychic Game</title>
+
+</head>
+
+	<h1>The Psychic Game</h1>
+
+<body>
+
+	<p id="victories">Wins: </p>
+	<p id="defeats">Losses: </p>
+	<p id="attempts">Guesses: </p>
+	<p id="results">Result: </p>
+	<span id="user-text"><strong>Pick a letter, any letter</strong></span><p>
+
+	<script>
+
+		var userText = document.getElementById("user-text");
+		
+		var compChoices = ["i", "m", "a", "n", "e", "w", "b", "i", "e"];
+		var win = 0;
+		var loss = 0;
+		var guesses = 20;
+		var human
+		var comp
+		var result = ''; 
+
+		document.onkeyup = function presto() {
+			human = event.key;
+			userText.textContent = event.key;
+
+ 			var comp = compChoices[Math.floor(Math.random() * compChoices.length)]
+
+ 			//  Used these for debugging
+	        //  console.log(human)
+	        //  console.log(comp)
+	        //  console.log(loss)
+	        //  console.log("guesses ", guesses) 
+
+
+			if (human === comp) {
+				win++;
+				result="No way! ESP is real!!";
+				document.getElementById("victories").innerHTML = "Wins: " + win;
+				document.getElementById("results").innerHTML = "Result: " + result;
+				reset();	
+			}
+			
+			if (human !== comp) {
+				guesses--;
+				result="Yeah, real clairvoyant...";
+				document.getElementById("attempts").innerHTML = "Guesses: " + guesses;
+				document.getElementById("results").innerHTML = "Result: " + result;
+			}
+
+			if (guesses === 0) {
+				result="You're no Psychic!!";
+				loss++;
+				document.getElementById("defeats").innerHTML = "Losses: " + loss;
+				document.getElementById("results").innerHTML = "Result: " + result;
+				reset();
+			}
+		}
+
+		function reset() {
+			guesses = 20
+			result = ''
+			document.getElementById("user-text");
+			console.log(reset())
+		}
+		
+		
+		// Redundant code I thought was necessary,left in to show the progress.
+		// document.getElementById("victories").innerHTML = "Wins: " + win;
+		// document.getElementById("defeats").innerHTML = "Losses: " + loss;
+		// document.getElementById("attempts").innerHTML = "Guesses: " + guesses;
+		// document.getElementById("results").innerHTML = "Result: " + result;
+
+
+
+	</script>
+
+
+</body>
+</html>
